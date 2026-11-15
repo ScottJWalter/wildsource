@@ -54,3 +54,13 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## License
+
+The WildSource code is released under the [MIT License](LICENSE), with one exception:
+
+- **Photos in `src/lib/assets/photos/`** are © Jasanpreet Nagra, all rights reserved. They are not
+  covered by the MIT License and may not be reused without permission. See
+  [their license](src/lib/assets/photos/LICENSE.md).
+
+Live streams listed in the catalog belong to the people and organisations who run them.
