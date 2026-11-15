@@ -93,7 +93,10 @@
 				></span>
 				<span class="font-display text-[22px] font-semibold">{host.name}</span>
 				<span class="text-[15px] text-muted">{host.camType} · {host.region}</span>
-				<p class="m-0">{host.quote}</p>
+				{#if host.quote}
+					<p class="m-0">{host.quote}</p>
+				{/if}
+				<a href={host.url} rel="external" class="mt-auto font-bold text-link">Visit {host.name}</a>
 			</div>
 		{/each}
 	</div>
