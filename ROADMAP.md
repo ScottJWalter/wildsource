@@ -1,0 +1,43 @@
+# Roadmap
+
+## v0.1: Catalog (MVP)
+
+- [ ] Map and grid of embedded streams
+- [ ] Filters: habitat, region, species
+- [ ] Stream detail page with source link and credit
+- [ ] Submission via GitHub issue (manual review)
+- [ ] Seed catalog of 30-50 public nature streams
+- [ ] Open JSON export of the catalog
+
+## v0.2: Database and submissions
+
+- [ ] PostgreSQL + PostGIS storage
+- [ ] Submission form in the site
+- [ ] Admin review queue
+- [ ] Location fuzzing for sensitive sites
+- [ ] Nightly stream health check (hide dead streams)
+
+## v0.3: Live-first discovery
+
+- [ ] "Live now" and "golden hour" views based on local time
+- [ ] Viewer flags for notable moments
+- [ ] Contributor profiles and per-stream stats
+
+## v0.4: Photos and highlights
+
+- [ ] Auto-snapshots per camera
+- [ ] Community photo uploads with EXIF stripping and license choice
+- [ ] Highlight clips
+
+## v0.5: Contributor camera kit
+
+- [ ] Raspberry Pi image that streams and registers itself
+- [ ] Setup guide for bird feeders and nest boxes
+
+## Later
+
+- Species tagging and export to iNaturalist and eBird
+- Federation between WildSource instances
+- Direct stream hosting via an open source media server
+
+Items may change. Open an issue to propose or discuss anything here.

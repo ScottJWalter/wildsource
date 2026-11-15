@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+/* Dark mode follows the data-theme attribute set in app.html (see ThemeToggle.svelte). */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Design tokens from the "Field Notes" identity.
+ * Each colour is a CSS variable so light and dark can swap values,
+ * then exposed to Tailwind as utilities (bg-bg, text-ink, border-line, ...).
+ */
+:root {
+	--c-bg: #f4f6ef;
+	--c-surface: #ffffff;
+	--c-surface2: #e6eedf;
+	--c-ink: #1f2a1e;
+	--c-head: #1f3a27;
+	--c-muted: #435242;
+	--c-primary: #2f5d3a;
+	--c-on-primary: #ffffff;
+	--c-link: #2f5d3a;
+	--c-accent: #f1c84b;
+	--c-on-accent: #1f2a1e;
+	--c-line: #cbd6c4;
+	--c-band: #1f3a27;
+	--c-on-band: #f4f6ef;
+	--c-band-muted: #d5e2d2;
+	--c-field: #ffffff;
+	--c-avatar: #cfe0cc;
+	--c-pill: #ffffff;
+	--c-pill-ink: #1f2a1e;
+	--c-code-bg: #1f3a27;
+	--c-err: #b3261e;
+	--c-err-bg: #fbeae8;
+
+	/* Six sky/ground pairs used by the illustrated stream tiles. */
+	--tile-0-sky: #cfe0cc;
+	--tile-0-ground: #8db48f;
+	--tile-1-sky: #bbd6e0;
+	--tile-1-ground: #7fb0c4;
+	--tile-2-sky: #f3dfa6;
+	--tile-2-ground: #d9b95b;
+	--tile-3-sky: #ebd9b8;
+	--tile-3-ground: #c9a86a;
+	--tile-4-sky: #b5d9d6;
+	--tile-4-ground: #6db0ab;
+	--tile-5-sky: #d6e4b8;
+	--tile-5-ground: #9dba6a;
+
+	color-scheme: light;
+}
+
+[data-theme='dark'] {
+	--c-bg: #101a14;
+	--c-surface: #18251d;
+	--c-surface2: #1e2d24;
+	--c-ink: #e8efe3;
+	--c-head: #f1f5ec;
+	--c-muted: #b7c6b8;
+	--c-primary: #9ed39b;
+	--c-on-primary: #0f1f14;
+	--c-link: #9ed39b;
+	--c-line: #35493b;
+	--c-band: #234a30;
+	--c-field: #101a14;
+	--c-avatar: #2c4636;
+	--c-pill: #f1c84b;
+	--c-pill-ink: #1f2a1e;
+	--c-code-bg: #0b130e;
+	--c-err: #ff9e94;
+	--c-err-bg: #3a1f1c;
+
+	--tile-0-sky: #1f3328;
+	--tile-0-ground: #35563f;
+	--tile-1-sky: #1b3038;
+	--tile-1-ground: #2f5663;
+	--tile-2-sky: #34301b;
+	--tile-2-ground: #5a5230;
+	--tile-3-sky: #33291a;
+	--tile-3-ground: #5c4a2a;
+	--tile-4-sky: #17342f;
+	--tile-4-ground: #2c5e57;
+	--tile-5-sky: #263418;
+	--tile-5-ground: #47632a;
+
+	color-scheme: dark;
+}
+
+@theme inline {
+	--color-bg: var(--c-bg);
+	--color-surface: var(--c-surface);
+	--color-surface2: var(--c-surface2);
+	--color-ink: var(--c-ink);
+	--color-head: var(--c-head);
+	--color-muted: var(--c-muted);
+	--color-primary: var(--c-primary);
+	--color-on-primary: var(--c-on-primary);
+	--color-link: var(--c-link);
+	--color-accent: var(--c-accent);
+	--color-on-accent: var(--c-on-accent);
+	--color-line: var(--c-line);
+	--color-band: var(--c-band);
+	--color-on-band: var(--c-on-band);
+	--color-band-muted: var(--c-band-muted);
+	--color-field: var(--c-field);
+	--color-avatar: var(--c-avatar);
+	--color-pill: var(--c-pill);
+	--color-pill-ink: var(--c-pill-ink);
+	--color-code-bg: var(--c-code-bg);
+	--color-err: var(--c-err);
+	--color-err-bg: var(--c-err-bg);
+
+	--font-sans: 'Nunito Sans', system-ui, sans-serif;
+	--font-display: 'Fraunces', Georgia, serif;
+}
+
+@layer base {
+	body {
+		@apply bg-bg font-sans leading-[1.6] text-ink;
+	}
+}
+
+/* Shared building blocks, so pages don't repeat long class lists. */
+@utility container-page {
+	@apply mx-auto box-border w-full max-w-[1280px] px-[clamp(20px,5vw,40px)];
+}
+
+@utility heading-xl {
+	@apply m-0 font-display text-[clamp(38px,8vw,68px)] leading-[1.04] font-semibold tracking-[-0.015em] text-balance text-head;
+}
+
+@utility heading-lg {
+	@apply m-0 font-display text-[clamp(30px,6vw,44px)] leading-[1.1] font-semibold text-head;
+}
+
+@utility heading-md {
+	@apply m-0 font-display text-[clamp(26px,5vw,34px)] leading-[1.1] font-semibold text-head;
+}
+
+@utility btn {
+	@apply inline-flex min-h-[52px] cursor-pointer items-center justify-center rounded-[14px] px-7 font-sans text-base font-bold no-underline;
+}
+
+@utility btn-primary {
+	@apply btn border-0 bg-primary text-on-primary;
+}
+
+@utility btn-outline {
+	@apply btn border-2 border-primary bg-transparent text-link;
+}
+
+@utility btn-quiet {
+	@apply btn border-[1.5px] border-line bg-transparent text-ink;
+}
+
+@utility field {
+	@apply box-border min-h-[52px] w-full rounded-xl border-[1.5px] border-line bg-field px-4 font-sans text-[17px] text-ink;
+}

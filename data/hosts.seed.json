@@ -1,0 +1,29 @@
+[
+	{
+		"id": "example-host-a",
+		"name": "Example host A",
+		"region": "Example, US",
+		"since": 2026,
+		"camType": "Porch feeder cam",
+		"quote": "Placeholder: one line from the host about why they run this camera.",
+		"bio": "Placeholder: a short note from the host about who they are and why they keep these cameras running."
+	},
+	{
+		"id": "example-host-b",
+		"name": "Example host B",
+		"region": "Example, US",
+		"since": 2026,
+		"camType": "Pond cam",
+		"quote": "Placeholder: one line from the host about why they run this camera.",
+		"bio": "Placeholder: a short note from the host."
+	},
+	{
+		"id": "example-host-c",
+		"name": "Example host C",
+		"region": "Example, US",
+		"since": 2026,
+		"camType": "Barn nest box cam",
+		"quote": "Placeholder: one line from the host about why they run this camera.",
+		"bio": "Placeholder: a short note from the host."
+	}
+]
