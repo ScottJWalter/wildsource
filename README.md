@@ -51,6 +51,19 @@ Then open <http://localhost:5173>.
 
 Run `pnpm check` and `pnpm lint` before opening a pull request. There are no tests yet, so `pnpm test` reports "No test files found". Tests go next to the code they test, as `*.spec.ts` files.
 
+### Docker
+
+Docker and Docker Compose can build and run the production server:
+
+```bash
+cp .env.example .env
+docker compose up --build -d
+```
+
+The site is available at <http://localhost:3000>. Set `PUBLIC_SITE_URL` in `.env` to the public address before building for deployment; `PUBLIC_REPO_URL` controls source-code and submission links, and `PORT` controls the host port. These public URLs are embedded in the image during the build, so rebuild after changing them.
+
+The `Container` GitHub Actions workflow builds and publishes `ghcr.io/scottjwalter/wildsource:latest` and a commit-specific tag on pushes to `v0.1`. Daily, it also merges changes from the upstream `jasanpreetn9/wildsource` `v0.1` branch directly into this fork and builds the image, retrying any failed build. It creates no pull requests; if an upstream change conflicts with fork changes, the sync fails without pushing and needs manual resolution. The workflow needs `contents: write` and `packages: write` permission in repository Actions settings. Set the repository Actions variables `PUBLIC_SITE_URL` and `PUBLIC_REPO_URL` to configure the published image; otherwise they default to the upstream site and this fork respectively. The published package may need to be made public in GitHub Packages settings. Running containers do not update automatically when a new image is published.
+
 ## How it's built
 
 - [SvelteKit](https://svelte.dev/docs/kit) with Svelte 5 and TypeScript

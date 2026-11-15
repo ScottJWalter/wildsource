@@ -1,0 +1,11 @@
+.git
+.svelte-kit
+.output
+.vercel
+.netlify
+.wrangler
+build
+node_modules
+.env
+.env.*
+!.env.example

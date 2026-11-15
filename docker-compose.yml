@@ -1,0 +1,14 @@
+services:
+  wildsource:
+    image: ghcr.io/scottjwalter/wildsource:latest
+    build:
+      context: .
+      args:
+        PUBLIC_REPO_URL: ${PUBLIC_REPO_URL:-https://github.com/ScottJWalter/wildsource}
+        PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-http://localhost:3000}
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+    ports:
+      - '${PORT:-3000}:3000'
+    restart: unless-stopped
