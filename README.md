@@ -18,7 +18,7 @@ WildSource collects live nature cameras in one place: big projects like bird and
 ## Features (v0.1)
 
 - Home page with streams that are live right now
-- Catalog with habitat filters, search and sorting
+- Catalog with habitat and region filters, search and sorting
 - A page for each stream, with an embedded player and credit to its owner
 - "Add a camera" form that opens a pre-filled GitHub issue for review
 - The whole catalog as JSON at `/api/streams.json`
@@ -97,7 +97,7 @@ Until v0.2 adds a database, streams are added by editing `data/streams.seed.json
 2. If the camera's owner isn't in `data/hosts.seed.json` yet, add them there.
 3. Add the stream to `data/streams.seed.json`. `habitat` must be one of the values in `src/lib/types.ts`.
 4. Set `permission` to `embed-allowed`, or to `owner-approved` once the owner has said yes.
-5. Keep `region` general, such as a state or country, especially for nests.
+5. Keep `region` general, especially for nests, and always **end it with the country**: `Montana, US`, `Etosha, Namibia`, or just `Panama`. The region filter reads the country from the last part.
 
 Write the description yourself rather than copying the owner's text.
 
@@ -114,8 +114,14 @@ Contributions are welcome. You can submit streams or code. See [CONTRIBUTING.md]
 
 ## License
 
-The WildSource code is released under the [MIT License](LICENSE), with one exception:
+WildSource is free to use, change and share for non-commercial purposes under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License](LICENSE) (CC BY-NC-SA 4.0). In short:
 
-- **Photos in `src/lib/assets/photos/`** are © Jasanpreet Nagra, all rights reserved. They are not covered by the MIT License and may not be reused without permission. See [their license](src/lib/assets/photos/LICENSE.md).
+- **Credit** WildSource when you use it.
+- **No commercial use.** You may not sell it, charge for access to it, run it with ads or a paywall, or use it in a paid product or service.
+- **Share alike.** If you change it, you must release your version under the same license so it stays free.
+
+There is one exception:
+
+- **Photos in `src/lib/assets/photos/`** are © Jasanpreet Nagra, all rights reserved. They are not covered by the CC BY-NC-SA 4.0 License and may not be reused without permission. See [their license](src/lib/assets/photos/LICENSE.md).
 
 The catalog data (stream names, habitats, regions and links) is free to reuse. Live streams belong to the people and organisations who run them. WildSource only shows them through their owners' own players.
